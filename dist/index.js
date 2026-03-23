@@ -7,7 +7,7 @@ wss.on("connection", (socket) => {
     console.log("Client connected");
     socket.on("message", (msg) => {
         const data = JSON.parse(msg.toString());
-        // 🔥 JOIN / CREATE ROOM
+        //  JOIN / CREATE ROOM
         if (data.type === "join") {
             const room = data.room;
             if (!rooms[room]) {
@@ -22,14 +22,14 @@ wss.on("connection", (socket) => {
             }
             socket.room = room;
             rooms[room].push(socket);
-            // ✅ SEND JOIN CONFIRMATION
+            //  SEND JOIN CONFIRMATION
             socket.send(JSON.stringify({
                 type: "joined",
                 room
             }));
             console.log(`User joined room: ${room}`);
         }
-        // 🔥 CHAT
+        //  CHAT
         if (data.type === "chat") {
             const room = socket.room;
             if (!room)
@@ -55,4 +55,4 @@ wss.on("connection", (socket) => {
         console.log("Client disconnected");
     });
 });
-console.log("🚀 Server running on ws://localhost:8080");
+console.log(" Server running on ws://localhost:8080");
