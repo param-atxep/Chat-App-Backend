@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Premium Chat</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: white;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 400px;
+      background: #111;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.05);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #1c1c1c;
+      color: white;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+
+    .chat-box {
+      height: 300px;
+      overflow-y: auto;
+      margin-top: 15px;
+      padding: 10px;
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+
+    .msg {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 70%;
+    }
+
+    .me {
+      background: white;
+      color: black;
+      margin-left: auto;
+    }
+
+    .other {
+      background: #333;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 🔥 ROOM SCREEN -->
+  <div id="roomScreen">
+    <h2>💬 Premium Chat</h2>
+
+    <input id="createRoomInput" placeholder="Enter room name to create" />
+    <button onclick="createRoom()">Create Room</button>
+
+    <input id="joinRoomInput" placeholder="Enter room name to join" />
+    <button onclick="joinRoom()">Join Room</button>
+  </div>
+
+  <!-- 🔥 CHAT SCREEN -->
+  <div id="chatScreen" class="hidden">
+    <h2 id="roomTitle"></h2>
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <input id="messageInput" placeholder="Type message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<script src="./dist/client.js"></script>
+
+</body>
+</html>
